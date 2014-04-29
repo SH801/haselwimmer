@@ -4,7 +4,7 @@ University of Cambridge C# Raven Authentication Module - v.1.0 (29/04/2014)
 Description
 -----------
 The software comprises a C# class 'Ucam_Webauth' and sample files that 
-provide a C# implementation of a 'Raven' authentication module. Raven is 
+provide a C# implementation of a 'Raven' authentication module; Raven is 
 the web authentication protocol used by the University of Cambridge, UK. 
 The logic and code of the 'Ucam_Webauth' class are loosely based on the 
 PHP Raven authentication class provided at http://raven.cam.ac.uk/project/. 
@@ -18,17 +18,18 @@ Files and folders
 - [App_Code]: Contains the main C# class 'Ucam_Webauth'.
 - [bin]: The location for the binary DLLs for OpenSSL and OpenSSL.NET.
 - [certificates]: Temporary location for Raven public key certificates.
-- [docs]: Contains supporting documentation.
+- [docs]: Supporting documentation.
 - [logs]: The location for log files created by the module.
-- Default.aspx: A sample file showing how 'Ucam_Webauth' is used to provide 
-Raven authentication.
+- Default.aspx: A sample file showing how the 'Ucam_Webauth' class is used 
+to provide Raven authentication.
 - Test.aspx: A test file for unit testing the 'Ucam_Webauth' module using the 
-- 'Ucam_RavenWLS' dummy Raven server (separate project, not included).
-Ucam_Webauth.sln: A Microsoft Visual Studio Solution file for the module.
+'Ucam_RavenWLS' dummy Raven server (separate project, not included).
+- Ucam_Webauth.sln: A Microsoft Visual Studio Solution file for the module.
 
 Platform requirements
 ---------------------
-This module has been tested on .NET Framework 2.0. 
+This module has been tested on .NET Framework 2.0 and should be compatible 
+with all later versions of .NET
 
 Installation
 ------------
@@ -46,14 +47,14 @@ Copying both 32bit and 64bit DLLs onto the same machine may cause problems.
 The authentication module uses the Raven public key certificate at 
 https://raven.cam.ac.uk/project/keys/ to verify authentication responses. 
 Download the certificate from https://raven.cam.ac.uk/project/keys/ and copy 
-to the 'certificates' folder provided with the download - the 'certificates' 
-folder is a temporary location for the certificate while you get the module 
-up and running. You will need to supply the full path to the 'certificates' 
-folder as either a 'key_dir' argument supplied to the 'Ucam_Webauth' 
-constructor or by modifying the 'Ucam_Webauth.cs' variable 
-'DEFAULT_KEY_DIR' directly. 
+to the 'certificates' folder provided with this authentication module 
+download - the 'certificates' folder is a temporary location for the 
+certificate while you get the module up and running. You will need to supply 
+the full path to the 'certificates' folder as either a 'key_dir' argument 
+to the 'Ucam_Webauth' constructor or by modifying the 'Ucam_Webauth' 
+variable 'DEFAULT_KEY_DIR' directly. 
 
-Once you have everything running correctly, move the 'certificates' folder 
+Once you have everything working, move the 'certificates' folder 
 to a new location on your webserver that is not web- or publicly-accessible 
 and modify the 'key_dir' string accordingly.
  
@@ -63,8 +64,8 @@ to '2.crt'.
 If you're using the Raven test server 
 (http://raven.cam.ac.uk/project/test-demo/) for testing purposes, make sure 
 you install the test server keys instead, but ensure you remove these keys 
-before using the authentication module in a production environment. This is 
-following advice on the demo webpage:
+before using the authentication module in a production environment, as 
+recommended by the demo Raven server:
 >> It is vital to keep these demo keys seperate from keys 
 >> used with a production service - failure to do so could 
 >> allow an attacker to successfully replay a response 
@@ -75,34 +76,39 @@ following advice on the demo webpage:
 Getting started
 ---------------
 
-To use the 'Ucam_Webauth' C# class:
+The 'Ucam_Webauth' C# class must be used within an ASP.NET server-side page 
+as it interacts directly with a user's browser session. To use the 
+'Ucam_Webauth' C# class:
 
-- 1. Ensure the 'Ucam_Webauth.cs' class file is included in your project's 
-'App_Code' folder.
+- 1. Ensure the 'Ucam_Webauth.cs' class file is included in your ASP.NET 
+project's 'App_Code' folder.
 - 2. Reference the 'Ucam_Webauth.cs' namespace by including a reference 
-within your ASP.NET or C# file:
+within your ASP.NET file:
 
+```
 <%@ Import Namespace="Ucam" %>
+```
 
-OR
+- 3. Set up the initial arguments for the 'Ucam_Webauth' class:
 
-using Ucam;
-
-- 3. Set up the initial parameters for the 'Ucam_Webauth' class:
-
+```
 Dictionary<string, string> args = new Dictionary<string,string>();              
 args.Add("hostname", "localhost");
 args.Add("auth_service", "https://demo.raven.cam.ac.uk/auth/authenticate.html");
 args.Add("key_dir", "C:/Ucam_Webauth/certificates");
+```
 
 'args' is an associative array of *text* strings so parameter values must 
-be converted into strings - numbers and booleans must be supplied within 
-quotes, ie. "23", "TRUE", "FALSE".
+be converted into strings, ie. numbers and booleans must be supplied within 
+quotes as in "23", "TRUE", "FALSE".
 A full list of allowed parameters is provided at the end of this README. 
 
-- 4. Create an instance of the class from within a C# server page:
+- 4. Create an instance of the 'Ucam_Webauth' class from within your C# 
+server page:
 
+```
 var oUcam_Webauth = new Ucam_Webauth(args, Request, Response);        
+```
 
 'Request' and 'Response' are HTTP server variables that must be supplied to 
 'Ucam_Webauth' to allow it to check/set headers and server variables.
@@ -110,6 +116,7 @@ var oUcam_Webauth = new Ucam_Webauth(args, Request, Response);
 - 5. Call 'Authenticate()' on the Ucam_Webauth object and act according to 
 the value returned:
 
+```
 switch (oUcam_Webauth.Authenticate())
 {
     case Ucam_Webauth.AUTHENTICATE_INCOMPLETE:
@@ -132,33 +139,35 @@ switch (oUcam_Webauth.Authenticate())
 		...                
         break;                
 }
+```
 
 The four possible return values of 'Authenticate()' are:
 
-AUTHENTICATE_INCOMPLETE : The authentication process has yet to complete. 
-It may be waiting on user interaction at the WLS server.
-AUTHENTICATE_COMPLETE_AUTHENTICATED : The authentication process completed 
+- AUTHENTICATE_INCOMPLETE : The authentication process has yet to complete. 
+The user may have been redirected to the Raven server and has yet to enter 
+their login details.
+- AUTHENTICATE_COMPLETE_AUTHENTICATED : The authentication process completed 
 and the user has been successfully authenticated.
-AUTHENTICATE_COMPLETE_NOT_AUTHENTICATED : The authentication process 
+- AUTHENTICATE_COMPLETE_NOT_AUTHENTICATED : The authentication process 
 completed and the user was not successfully authenticated. 
-The user may have clicked 'Cancel' at the WLS server.
-AUTHENTICATE_COMPLETE_ERROR : There was an error during the authentication 
+The user may have clicked 'Cancel' at the Raven server.
+- AUTHENTICATE_COMPLETE_ERROR : There was an error during the authentication 
 process forcing the authentication cycle to terminate early.
 
 As the 'Authenticate()' function may need to send HTTP headers, it must be 
 called before any output (e.g. HTML, HTTP headers) is sent to the browser.
 
-A sample of a simple server page using the 'Ucam_Webauth' C# module can be 
-found in the 'Default.aspx' file provided.
+The 'Default.aspx' file provided is a sample of a simple server page using 
+the 'Ucam_Webauth' C# class.
 
 Overview of Raven process
 -------------------------
 A diagram of the Raven authentication process is located within the 'docs' 
-folder as "I - Overview of Raven Authentication Process.pdf". 
+folder as [I - Overview of Raven Authentication Process.pdf]. 
 
 The authentication cycle consists of the following key stages:
 
-### User first tries to access authenticated page
+#### User first tries to access authenticated page
 User tries to load an authenticated page on a particular website. 
 The 'Ucam_Webauth' class is loaded and the 'Authenticate()' function is called. 
 If no authentication cookie is found to indicate the user is authenticated, 
@@ -166,43 +175,44 @@ the user's browser is redirected to a separate Raven server using a special
 'Authentication Request'. The authentication request consists of a series of 
 authentication parameters encoded into the URL redirect as name/value pairs.
 
-### User is prompted for login information
+#### User is prompted for login information
 The Raven server interprets the authentication request sent by the main 
 website and prompts the user for their username and password. The user may 
 then be successfully authenticated or may decide to click 'Cancel'. They are 
 redirected back to the main website with a series of 'Authentication Response' 
 parameters encoded into a 'WLS-Response' GET variable.
 
-### User redirected back to main webserver
+#### User redirected back to main webserver
 The user's original page is loaded again and 'Authenticate()' is called a 
 second time. 'Ucam_Webauth' processes the new 'WLS-Response' GET value and, 
 if it's valid, sets an authentication cookie on the user's browser. The 
 user's original page is then loaded again. 
 
-### User redirected back to main webserver  
-With an authentication cookie now set, 'Authenticate()' returns either 
+#### User redirected back to main webserver again 
+With an authentication cookie now set, 'Authenticate()' checks the status 
+code contained in the value of the authentication cookie and returns either 
 'AUTHENTICATE_COMPLETE_AUTHENTICATED' or 
 'AUTHENTICATE_COMPLETE_NOT_AUTHENTICATED'. If 
-'AUTHENTICATE_COMPLETE_AUTHENTICATED', the original page can go on to 
-display authenticated content to the user.
+'AUTHENTICATE_COMPLETE_AUTHENTICATED' is returned , the original page can 
+go on to display authenticated content to the user.
 
 Specifics of module
 -------------------
 The 'Authenticate()' function is the overarching authentication function of 
-'Ucam_Webauth'. It starts off by performing some basic sanity checks using 
-'CheckSetup()' then uses 'GetCurrentState()' to establish the current state 
-of the authentication process:
+'Ucam_Webauth'. It performs some basic sanity checks using 'CheckSetup()' 
+then uses 'GetCurrentState()' to establish the current state of the 
+authentication process before branching accordingly. The possible return 
+values of 'GetCurrentState()' are:
 
-### STATE_NEW_AUTHENTICATION
+#### STATE_NEW_AUTHENTICATION
 A completely fresh authentication. 'SendAuthenticationRequest()' [*1*] is 
-called which sends an authentication request to the Raven authentication 
-server. 'SendAuthenticationRequest()' performs some basic data checks, sets 
-the authentication cookie to 'AUTHENTICATIONCOOKIE_REDIRECT_WLS' (to record 
-where we are in the authentication process) and redirects the users browser 
-to the Raven authentication server with a series of authentication parameters 
+then triggered which performs some basic data checks, sets the authentication 
+cookie to 'AUTHENTICATIONCOOKIE_REDIRECT_WLS' (to record where we are in the 
+authentication process) and redirects the user's browser to the Raven 
+authentication server with a series of authentication parameters 
 encoded as name/value pairs.
 
-### STATE_WLS_RESPONSE_RECEIVED
+#### STATE_WLS_RESPONSE_RECEIVED
 The Raven authentication server has processed the user and has returned the 
 user's browser back to the original website with a series of authentication 
 response parameters encoded into the 'WLS-Response' GET variable. 
@@ -210,28 +220,30 @@ response parameters encoded into the 'WLS-Response' GET variable.
 validity of the 'WLS-Response' value, sets an authentication cookie and 
 redirects the user back to the original page.
 
-### STATE_WAA_AUTHENTICATIONCOOKIE_SET
+#### STATE_WAA_AUTHENTICATIONCOOKIE_SET
 A valid authentication cookie has been set 
 (<> AUTHENTICATIONCOOKIE_REDIRECT_WLS). 
 'ProcessAuthenticationCookie()' [*3*] is then called which checks the 
 validity of the cookie. If the cookie has expired, 
 'SendAuthenticationRequest()' is called again in case the user needs to 
 reauthenticate themselves. If the cookie is still valid, an 
-'AUTHENTICATE_COMPLETE_XXX' value is returned to the user indicating that 
-the authentication cycle has completed successfully. 
+'AUTHENTICATE_COMPLETE_XXX' value is returned, indicating that the 
+authentication cycle has completed successfully. 
 NOTE: this may be true if the user has cancelled the authentication process, 
 in which case 'AUTHENTICATE_COMPLETE_NOT_AUTHENTICATED' will be returned.
 
-### STATE_ERROR
+#### STATE_ERROR
 An error occurred, breaking the authentication cycle and returning 
-AUTHENTICATE_COMPLETE_ERROR to user.
+AUTHENTICATE_COMPLETE_ERROR to 'Authenticate()'. This return value will 
+also be generated by the other functions above if they generate an error.
 
+## Accompanying diagrams
 Detailed diagrams of the Raven process flow for (i) a successful 
-authentication (ii) a cancelled authentication are located in the 'docs' 
-folder as "II - Ucam_Webauth - Flowchart for Valid Authentication" and 
-"III - Ucam_Webauth - Flowchart for Cancelled Authentication", respectively. 
+authentication (ii) a cancelled authentication, are located in the 'docs' 
+folder as [II - Ucam_Webauth - Flowchart for Valid Authentication.pdf] and 
+[III - Ucam_Webauth - Flowchart for Cancelled Authentication.pdf], respectively. 
 
-The numbers on these diagrams correspond to the three key secondary function 
+The numbers on these diagrams correspond to the three key secondary functions 
 described above:
 - *1*. SendAuthenticationRequest()
 - *2*. ProcessAuthenticationResponse()
@@ -244,10 +256,9 @@ Attempts to reset state as if a new user has just loaded a fresh browser
 window. This is typically used when a user has experienced an error and we 
 want to give them a fresh opportunity to try again. 
 
-
 ### check_signature(...)
-Checks the signature provided by the Raven server when it signed the 
-'WLS-Response' variable is a valid signature for the data. This ensures the 
+Checks the signature provided by the Raven server, when it signed the 
+'WLS-Response' variable, is a valid signature for the data. This ensures the 
 data has not been tampered with.
 
 ### hmac_sha1(...)
@@ -258,7 +269,7 @@ Encoding/decoding functions to allow base64 signatures to be sent within URLs.
 
 Possible arguments to 'Ucam_Webauth'
 ------------------------------------
-(Based on documentation for PHP authentication module)
+(Based on documentation for PHP Raven authentication module)
 
 - log_file : 
 The location for a log file that will record progress and track possible 
@@ -332,8 +343,10 @@ No default.
 - auth_service : The full URL for the web login service to be used. 
 Default: 'https://raven.cam.ac.uk/auth/authenticate.html' 
 
-### The following parameters prefixed with 'authrequest_' relate to properties 
-sent to the authentication server as part of an authentication request:
+#### Authentication request properties
+The following setup parameters prefixed with 'authrequest_' relate to 
+properties that will be sent to the authentication server as part of an 
+authentication request:
 
 - authrequest_desc : A text description of the resource that is requesting 
 authentication. This may be displayed to the user by the authentication 

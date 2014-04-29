@@ -15,15 +15,15 @@ of Cambridge by sh801@cam.ac.uk
 
 Files and folders
 -----------------
-[App_Code]: Contains the main C# class 'Ucam_Webauth'.
-[bin]: The location for the binary DLLs for OpenSSL and OpenSSL.NET.
-[certificates]: Temporary location for Raven public key certificates.
-[docs]: Contains supporting documentation.
-[logs]: The location for log files created by the module.
-Default.aspx: A sample file showing how 'Ucam_Webauth' is used to provide 
+- [App_Code]: Contains the main C# class 'Ucam_Webauth'.
+- [bin]: The location for the binary DLLs for OpenSSL and OpenSSL.NET.
+- [certificates]: Temporary location for Raven public key certificates.
+- [docs]: Contains supporting documentation.
+- [logs]: The location for log files created by the module.
+- Default.aspx: A sample file showing how 'Ucam_Webauth' is used to provide 
 Raven authentication.
-Test.aspx: A test file for unit testing the 'Ucam_Webauth' module using the 
-'Ucam_RavenWLS' dummy Raven server (separate project, not included).
+- Test.aspx: A test file for unit testing the 'Ucam_Webauth' module using the 
+- 'Ucam_RavenWLS' dummy Raven server (separate project, not included).
 Ucam_Webauth.sln: A Microsoft Visual Studio Solution file for the module.
 
 Platform requirements

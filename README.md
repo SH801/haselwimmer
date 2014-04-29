@@ -4,8 +4,8 @@ University of Cambridge C# Raven Authentication Module - v.1.0 (29/04/2014)
 Description
 -----------
 The software comprises a C# class 'Ucam_Webauth' and sample files that 
-provide a C# implementation of an authentication module for Raven, the 
-web authentication protocol used by the University of Cambridge, UK. 
+provide a C# implementation of a 'Raven' authentication module. Raven is 
+the web authentication protocol used by the University of Cambridge, UK. 
 The logic and code of the 'Ucam_Webauth' class are loosely based on the 
 PHP Raven authentication class provided at http://raven.cam.ac.uk/project/. 
 - For a full description of the latest Raven specification and an explanation 

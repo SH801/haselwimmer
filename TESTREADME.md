@@ -270,7 +270,7 @@ The 'JSONParser' class makes a JSON request and returns data as JSON object.
 The 'Login' class manages the login prompt. After entering a passphrase 
 through the login prompt, the system checks it is the correct passphrase for 
 the encrypted card key. If it is, the application sets the global passphrase 
-variable (via 'Core') accordingly. If it not the correct passphrase, the 
+variable (via 'Core') accordingly. If it is not the correct passphrase, the 
 application increments the login counter and prompts the user for the 
 passphrase again.
 

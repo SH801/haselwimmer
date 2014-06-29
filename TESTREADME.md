@@ -126,7 +126,7 @@ in the event the card has expired or no card information can be retrieved
 nothing).
 
 ### Output \ Add delimiter
-For entering a sequence of text delimiters to be appended to the card data, 
+For entering a sequence of text delimiters to be appended to the card data 
 whenever text is output.
 
 ### Output \ Add carriage return

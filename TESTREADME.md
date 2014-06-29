@@ -245,8 +245,9 @@ to connect to the phone via USB debugging. If someone is trying to connect,
 the encrypted card key is deleted for security reasons.
 
 ### Decryption.java
-The 'Decryption' class handles decryption of the encrypted card key. Based on 
-"Interoperable AES encryption with Java and JavaScript" 
+The 'Decryption' class handles decryption of the encrypted card key. 
+
+- Based on "Interoperable AES encryption with Java and JavaScript": 
 https://github.com/mpetersen/aes-example
 
 ### FallbackService.java

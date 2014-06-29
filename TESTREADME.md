@@ -92,11 +92,18 @@ against the current date and will either output nothing or "EXPIRED" (if
 
 ### Card processing \ Fallback URL
 For entering the website address of a web service to be used in the event a 
-card field is empty; the Mifare Unique Card ID is appended to the URL before 
-it's submitted to the web service, eg. 
-http://fallbackurl/retrieveCRSID/0123456789. This is useful when reading 
-CRSIDs as cards are often sent out to users before they've been assigned a 
-CRSID. 
+card field is empty. This is useful when reading CRSIDs as cards are often 
+sent out to staff members before they've been assigned a CRSID.
+
+The Mifare Unique Card ID is appended to the URL before it's submitted to the 
+web service:
+
+```
+http://fallbackurl/MIFARE_CARD_ID
+
+For example:
+http://cardservices.example.com/retrieveCRSID/0123456789. 
+```
 
 ### Output \ Destination
 Specify where output keys should be sent after a card has been successfully 

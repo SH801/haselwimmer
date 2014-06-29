@@ -96,11 +96,9 @@ card field is empty. This is useful when reading CRSIDs as cards are often
 sent out to staff members before they've been assigned a CRSID.
 
 The Mifare Unique Card ID is appended to the URL before it's submitted to the 
-web service:
+web service. For example:
 
 ```
-For example:
-
 Fallback URL: http://cardservices.example.com/retrieveCRSID/
 Web service loads: http://cardservices.example.com/retrieveCRSID/0123456789 
 ```

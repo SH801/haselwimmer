@@ -127,8 +127,10 @@ For entering the URL of the authentication web service that authenticates the
 application; the application must be authenticated before it can be used. A 
 central authentication server provides a way of distributing encrypted 
 versions of the University of Cambridge 'card key', required to read 
-University of Cambridge cards. For specific instructions on authenticating 
-the app, go to: http://card.careers.cam.ac.uk/apps
+University of Cambridge cards. 
+
+- For specific instructions on authenticating the app, go to: 
+http://card.careers.cam.ac.uk/apps
 
 Compiling and debugging application
 -----------------------------------

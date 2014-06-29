@@ -100,8 +100,8 @@ scanned. The options are:
 
 ### Output \ Output ID if empty
 If this box is ticked, the application will insert the Mifare Unique Card ID 
-of the card (prefixed with 'ID') if no specific card information can be found, 
-eg. "ID0123456789"
+of the card prefixed with 'ID', eg. "ID0123456789", if no specific card 
+information can be found.
 
 ### Output \ Describe errors in output
 If the card has expired or no card information can be found (assuming "Output 

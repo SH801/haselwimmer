@@ -7,9 +7,11 @@ The Android card reader application uses Near Field Communication (NFC) to
 read a user-defined field, eg. CRSID, Barcode, USN, from a Cambridge 
 University Mifare 4K card. It then sends the retrieved data as a sequence of 
 keystrokes to the local keyboard buffer / external PC / tablet, depending on 
-the application's 'Destination' setting. By creating a card reader 'keyboard 
-wedge', it's possible to create card applications quickly and easily without 
-having to worry about card reading specifics. 
+the application's 'Destination' setting. The application provides a card 
+reader 'keyboard wedge', making it possible to create separate card 
+applications quickly and easily without having to worry about card reading 
+specifics. For an example of a separate application, see 'Card Logger' at:
+http://card.careers.cam.ac.uk/apps
 
 Keystrokes are sent to the local device buffer using the Android Input Method 
 Editor (IME). Sending keys to an external PC / tablet is via the InputStick 

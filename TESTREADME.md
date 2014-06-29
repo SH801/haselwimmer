@@ -112,8 +112,12 @@ scanned. The options are:
 
 ### Output \ Output ID if empty
 If this box is ticked, the application will output the Mifare Unique Card ID 
-of the card prefixed with 'ID', eg. "ID0123456789", if no specific card 
-information can be retrieved off the card.
+of the card prefixed with 'ID' if no specific card information can be 
+retrieved off the card. For example:
+
+```
+ID0123456789
+```
 
 ### Output \ Describe errors in output
 If this box is ticked, meaningful text will be output ("EXPIRED" or "EMPTY") 

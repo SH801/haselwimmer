@@ -127,7 +127,7 @@ nothing).
 
 ### Output \ Add delimiter
 For entering a sequence of text delimiters that will be inserted after 
-the card data and before a possible carriage return whenever text is output.
+the card data, whenever text is output.
 
 ### Output \ Add carriage return
 If this box is ticked, a carriage return will be added after the card data 

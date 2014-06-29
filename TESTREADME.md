@@ -207,11 +207,11 @@ decrypted card key will typically be used to read the sectors off the card. If
 card information is missing, the class/activity can call a web service to look 
 up card information based on the card's id. 
 
-The activity is activated after 'android.nfc.action.TECH\_DISCOVERED' intent 
-and typically results in keys being sent to a local or remote device during 
-the 'processCardInfo' call. In the event of an asynchronous web service look 
-up, however, 'processCardInfo' may be called on a separate thread after the 
-async call has finished.
+The activity is activated after receiving the 
+'android.nfc.action.TECH\_DISCOVERED' intent and results in keys being sent 
+to a local or remote device during the 'processCardInfo' call. In the event 
+of an asynchronous web service lookup, however, 'processCardInfo' may be 
+called on a separate thread after the async call has finished.
 
 ### ConnectivityChange.java
 The 'ConnectivityChange' class responds to 

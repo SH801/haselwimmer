@@ -138,7 +138,7 @@ Compiling and debugging application
 using Android 4.2, developer options may be hidden by default. To enable them, 
 go to "Settings -> About phone" and tap "Build number" seven times. Return to 
 previous screen and "Developer options" should be visible.
-2. In "Developer options", ensure "USB Debugging" is ON (has a tick by it).
+2. In "Developer options", ensure "USB debugging" is ticked.
 3. Connect your Android device to your development machine with a USB cable. 
 You may need to install OEM USB drivers from: 
 http://developer.android.com/tools/extras/oem-usb.html 
@@ -146,8 +146,8 @@ Tap "OK" on any dialogs requesting permission.
 4. Download and install "Android SDK" from: 
 http://developer.android.com/sdk/index.html
 5. Launch "eclipse" from within the "adt-bundle-XXX\eclipse" folder. This 
-will launch "Android Developer Tools".
-6. Go to "File -> Import -> General: Existing Projects Into Workspace", 
+will start "Android Developer Tools".
+6. Go to "File -> Import -> General: Existing Projects into Workspace", 
 navigate to the main "UcamCardreader" folder and click "OK". 
 7. Click on "UcamCardreader" in the "Package Explorer" window and go to 
 "Run -> Debug As -> Android Application". You should see your Android device 
@@ -161,7 +161,7 @@ Specifics of the application
 The 'AndroidManifest.xml' configuration file activates different services / 
 activities (coded as separate .java class files) according to different system 
 messages. Some class files manage background tasks like card scanning while 
-others directly handle user interface screens.
+others handle the user interface.
 
 ### Authentication.java
 The 'Authentication' class manages the authentication screen for authenticating 
@@ -181,9 +181,6 @@ The web service should return the information in JSON format as:
 
 where 'status' is the status of the query ('200' = Success) and 'data'/'value' 
 is the name/value of the returned data field.
-
-Uses JSON parser (c) Mini Sharma from: 
-http://mrbool.com/how-to-use-json-to-parse-data-into-android-application/28944#ixzz33HP5lE46
 
 ### BootCompleted.java
 The 'BootCompleted' class responds to 'android.intent.action.BOOT\_COMPLETE' 
@@ -249,9 +246,6 @@ in JSON format as:
 
 where 'status' is the status of the query (200' = Success) and 'data'/'value' 
 is the name/value of the data field.
-
-Uses JSON parser (c) Mini Sharma from: 
-http://mrbool.com/how-to-use-json-to-parse-data-into-android-application/28944#ixzz33HP5lE46
 
 ### InputStick.java
 The 'InputStick' class manages the connection to the Bluetooth-to-USB 

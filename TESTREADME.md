@@ -61,12 +61,12 @@ https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool&hl=en_GB
 Installation and getting started
 --------------------------------
 Copy the compiled 'UcamCardreader.apk' application to your device via email / 
-web / USB / memorystick and follow the instructions provided at:
+web / USB / memorystick and follow the installation instructions provided at:
 http://card.careers.cam.ac.uk/apps
 
 Application settings
 --------------------
-The application has a number of user-defined settings, accessible by tapping 
+The application has a number of customisable settings, accessible by tapping 
 on the three dots, top right of the screen, and selecting "Settings":
 
 ### Card scanning \ Card information

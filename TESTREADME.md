@@ -197,8 +197,8 @@ is the name/value of the returned data field.
 
 ### BootCompleted.java
 The 'BootCompleted' class responds to 'android.intent.action.BOOT\_COMPLETE' 
-intent. We respond to BOOT\_COMPLETE intent in order to start 'Core' service 
-on startup. 'Core' handles all global variables and must be loaded first.
+intent, which loads the 'Core' service on startup; 'Core' handles all global 
+variables and must be loaded first.
 
 ### Card.java
 The 'Card' activity manages Mifare 4K card scanning and processing. A 

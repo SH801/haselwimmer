@@ -10,8 +10,9 @@ to the local keyboard buffer / external PC / tablet, depending on the
 application's 'Destination' setting. The application functions as a card 
 reader 'keyboard wedge', allowing separate card applications - receiving the 
 card data via the keyboard buffer - to be created quickly and easily without 
-having to worry about card reading specifics. For an example of a separate 
-card application, see 'Card Logger' at:
+having to worry about card reading specifics. 
+
+For an example of a separate card application, see 'Card Logger' at:
 
 - http://card.careers.cam.ac.uk/apps
 

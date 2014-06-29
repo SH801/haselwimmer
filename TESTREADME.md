@@ -55,7 +55,7 @@ This application has been developed and tested on the Sony Xperia M
 NFC-compliant Android phone running Android 4.2/4.3. It should run on all 
 NFC-compliant Android 4.2+ phones providing they can read Mifare 4K cards. 
 
-- To check an NFC phone is Mifare-4K-compliant, use the 'Mifare Classic Tool':
+- To check an NFC phone is Mifare-4K-compliant, use the 'Mifare Classic Tool': 
 https//:play.google.com/store/apps/details?id=de.syss.MifareClassicTool&hl=en_GB 
 
 Installation and getting started

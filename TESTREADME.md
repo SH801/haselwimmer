@@ -259,7 +259,7 @@ in JSON format as:
 {"status":"XXX","data":"value"}
 ```
 
-where 'status' is the status of the query (200' = Success) and 'data'/'value' 
+where 'status' is the status of the query ('200' = Success) and 'data'/'value' 
 is the name/value of the data field.
 
 ### InputStick.java

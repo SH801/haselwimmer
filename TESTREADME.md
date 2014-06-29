@@ -99,10 +99,10 @@ The Mifare Unique Card ID is appended to the URL before it's submitted to the
 web service:
 
 ```
-http://fallbackurl/MIFARE_CARD_ID
-
 For example:
-http://cardservices.example.com/retrieveCRSID/0123456789. 
+
+Fallback URL: http://cardservices.example.com/retrieveCRSID/
+Web service loads: http://cardservices.example.com/retrieveCRSID/0123456789 
 ```
 
 ### Output \ Destination

@@ -85,11 +85,12 @@ against the current date and will either output nothing or "EXPIRED" (if
 "Describe errors in output" is set) in the event the card has expired.
 
 ### Card processing \ Fallback URL
-The website address of a web service to be used in the event a card field is 
-empty; the Mifare Unique Card ID is appended to the URL before it's submitted 
-to the web service, eg. http://fallbackurl/retrieveCRSID/0123456789. This is 
-useful when reading CRSIDs as cards are often sent out to users before they've 
-been assigned a CRSID. 
+For entering the website address of a web service to be used in the event a 
+card field is empty; the Mifare Unique Card ID is appended to the URL before 
+it's submitted to the web service, eg. 
+http://fallbackurl/retrieveCRSID/0123456789. This is useful when reading 
+CRSIDs as cards are often sent out to users before they've been assigned a 
+CRSID. 
 
 ### Output \ Destination
 Specify where output keys should be sent after a card has been successfully 
@@ -101,12 +102,12 @@ scanned. The options are:
 ### Output \ Output ID if empty
 If this box is ticked, the application will insert the Mifare Unique Card ID 
 of the card prefixed with 'ID', eg. "ID0123456789", if no specific card 
-information can be found.
+information can be retrieved off the card.
 
 ### Output \ Describe errors in output
 If the card has expired or no card information can be found (assuming "Output 
 ID if empty" is off and the fallback URL returns nothing), then meaningful 
-text will be output ("EXPIRED" or "EMPTY") rather than nothing at all.
+text will be output ("EXPIRED" or "EMPTY") rather than doing nothing.
 
 ### Output \ Add delimiter
 A sequence of text delimiters can be inserted after the card data and before 
@@ -117,12 +118,12 @@ A carriage return can be added after the card data whenever any text is output
 to the local device / PC.
 
 ### Authentication \ Web service URL
-The URL of the authentication web service for authenticating the application; 
-the application must be authenticated before it can be used. A central 
-authentication server provides a way of distributing encrypted versions of the 
-University of Cambridge 'card key' that is required to read University of 
-Cambridge cards. For specific instructions on authenticating the app, go to: 
-http://card.careers.cam.ac.uk/apps
+For entering the URL of the authentication web service that authenticates the 
+application; the application must be authenticated before it can be used. A 
+central authentication server provides a way of distributing encrypted 
+versions of the University of Cambridge 'card key', required to read 
+University of Cambridge cards. For specific instructions on authenticating 
+the app, go to: http://card.careers.cam.ac.uk/apps
 
 Compiling and debugging application
 -----------------------------------

@@ -196,9 +196,10 @@ where 'status' is the status of the query ('200' = Success) and 'data'/'value'
 is the name/value of the returned data field.
 
 ### BootCompleted.java
-The 'BootCompleted' class responds to 'android.intent.action.BOOT\_COMPLETE' 
-intent, which loads the 'Core' service on startup; 'Core' handles all global 
-variables and must be loaded first.
+The 'BootCompleted' class responds to the 
+'android.intent.action.BOOT\_COMPLETE' intent and ensures the 'Core' service 
+is loaded on startup; 'Core' handles all global variables and must be loaded 
+first.
 
 ### Card.java
 The 'Card' activity manages Mifare 4K card scanning and processing. A 

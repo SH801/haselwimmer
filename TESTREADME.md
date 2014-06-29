@@ -1,27 +1,28 @@
-University of Cambridge Android Card Reader - v.1.0 (29/06/2014)
-================================================================
+University of Cambridge Card Reader (Android) - v.1.0 (29/06/2014)
+==================================================================
 
 Description
 -----------
-The software comprises Android Java and XML files that compile together to 
-form an Android NFC card reader application. The application reads a 
-user-defined field from the card, eg. CRSID, Barcode, USN, and sends the 
-retrieved data as a sequence of keystrokes to the device's local keyboard 
-buffer or to an external PC / tablet (depending on the 'Destination' setting 
-of the application). By creating a card reader 'keyboard wedge', it's possible 
-to create card applications quickly and easily without having to worry about 
-specifics of card reading. 
+The Android card reader application uses Near Field Communication (NFC) to 
+read a user-defined field, eg. CRSID, Barcode, USN, from a Cambridge 
+University Mifare 4K card. It then sends the retrieved data as a sequence of 
+keystrokes to the local keyboard buffer / external PC / tablet, depending on 
+the application's 'Destination' setting. By creating a card reader 'keyboard 
+wedge', it's possible to create card applications quickly and easily without 
+having to worry about card reading specifics. 
 
-- Sending to the local device buffer is via the Android Input Method: 
-http://developer.android.com/guide/topics/text/creating-input-method.html
-- Sending to an external PC / tablet is via the InputStick 
-Bluetooth-to-USB dongle: http://www.inputstick.com
+Keystrokes are sent to the local device buffer using the Android Input Method. 
+Sending keys to an external PC / tablet is via the InputStick 
+Bluetooth-to-USB dongle.
+ 
+- http://developer.android.com/guide/topics/text/creating-input-method.html
+- http://www.inputstick.com
 
 In the event of missing card information, the application uses a web service to 
 retrieve card information from a central database using the card's unique ID.
 
 The software has been specifically designed to read University of Cambridge 
-Mifare 4K NFC cards but can be easily modified to read other types of card. 
+Mifare 4K cards but can be easily modified to read other types of card. 
 For more information about the specification of University of Cambridge NFC 
 cards, contact the University Card Office:
 http://www.misd.admin.cam.ac.uk/services-and-support/university-card

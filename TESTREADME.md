@@ -17,7 +17,7 @@ http://developer.android.com/guide/topics/text/creating-input-method.html
 - Sending to an external PC / tablet is via the InputStick 
 Bluetooth-to-USB dongle: http://www.inputstick.com
 
-In the event of missing card information, the application uses a webservice to 
+In the event of missing card information, the application uses a web service to 
 retrieve card information from a central database using the card's unique ID.
 
 The software has been specifically designed to read University of Cambridge 
@@ -87,7 +87,7 @@ against the current date and will either output nothing or "EXPIRED" (if
 ### Card processing \ Fallback URL
 The website address of a web service to be used in the event a card field is 
 empty; the Mifare Unique Card ID is appended to the URL before it's submitted 
-to the webservice, eg. http://fallbackurl/retrieveCRSID/0123456789. This is 
+to the web service, eg. http://fallbackurl/retrieveCRSID/0123456789. This is 
 useful when reading CRSIDs as cards are often sent out to users before they've 
 been assigned a CRSID. 
 
@@ -117,7 +117,7 @@ A carriage return can be added after the card data whenever any text is output
 to the local device / PC.
 
 ### Authentication \ Web service URL
-The URL of the authentication webservice for authenticating the application; 
+The URL of the authentication web service for authenticating the application; 
 the application must be authenticated before it can be used. A central 
 authentication server provides a way of distributing encrypted versions of the 
 University of Cambridge 'card key' that is required to read University of 
@@ -163,9 +163,9 @@ the username/password are valid, the central server returns the Cambridge
 University card key encrypted with the supplied passphrase.
 
 ### AuthenticationService.java
-'AuthenticationService' class accesses the authentication webservice to 
+'AuthenticationService' class accesses the authentication web service to 
 retrieve an encrypted card key, encrypted with the supplied passphrase. 
-The webservice should return the information in JSON format as:
+The web service should return the information in JSON format as:
 
 ```
 {"status":"XXX","data":"value"}
@@ -185,12 +185,12 @@ We respond to BOOT\_COMPLETE intent in order to start 'Core' service on startup.
 ### Card.java
 'Card' activity manages Mifare 4K card scanning and processing. A decrypted 
 card key will typically be used to read the sectors off the card. If card 
-information is missing, the class/activity can call a webservice to look up 
+information is missing, the class/activity can call a web service to look up 
 card information based on the card's id. 
 
 The activity is activated after 'android.nfc.action.TECH\_DISCOVERED' intent 
 and typically results in keys being sent to a local or remote device during 
-the 'processCardInfo' call. In the event of an asynchronous webservice look 
+the 'processCardInfo' call. In the event of an asynchronous web service look 
 up, however, 'processCardInfo' may be called on a separate thread after the 
 async call has finished.
 
@@ -230,8 +230,8 @@ the encrypted card key is deleted for security reasons.
 https://github.com/mpetersen/aes-example
 
 ### FallbackService.java
-'FallbackService' class accesses a webservice to retrieve a value based on the 
-Mifare ID of the card. The webservice should provide the information in JSON 
+'FallbackService' class accesses a web service to retrieve a value based on the 
+Mifare ID of the card. The web service should provide the information in JSON 
 format as:
 
 ```

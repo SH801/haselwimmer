@@ -36,12 +36,12 @@ the final Android application.
 - [res]: Contains resources for the application, eg. icons (within 
 'drawable-XXXX'), text strings ('values\strings.xml'), menus (within 'menu'), 
 dialogs, preferences ('xml\preferences.xml') and layouts (within 'layout').
-- [src\com]: Source files for the 'SoftKeyboard' IME and InputStick objects 
-that process keystrokes sent from the main card reader application. Apart from 
-modifications to 'com.example.android.softkeyboard.SoftKeyboard.java', all 
-source files for 'src\com' are taken directly from the Android 'SoftKeyboard' 
-SDK sample and the InputStick SDK 
-(http://www.inputstick.com/index.php/developers/download)
+- [src\com]: Source files for the 'SoftKeyboard' Input Method Editor (IME) 
+and InputStick objects that process keystrokes sent from the main card reader 
+application. Apart from modifications to 
+'com.example.android.softkeyboard.SoftKeyboard.java', all source files for 
+'src\com' are taken directly from the Android 'SoftKeyboard' SDK sample and 
+the InputStick SDK (http://www.inputstick.com/index.php/developers/download)
 - [src\uk]: Source files for the main card reader application (namespace 
 'uk.ac.cam.cardreader'). A description of the function of each file is 
 provided below under "Specifics of the application".
@@ -60,8 +60,8 @@ https//:play.google.com/store/apps/details?id=de.syss.MifareClassicTool&hl=en_GB
 
 Installation and getting started
 --------------------------------
-Copy the latest 'UcamCardreader.apk' application to your device and follow the 
-instructions provided at:
+Copy the compiled 'UcamCardreader.apk' application to your device via email / 
+web / USB / memorystick and follow the instructions provided at:
 http://card.careers.cam.ac.uk/apps
 
 Application settings
@@ -82,15 +82,14 @@ Selects which piece of information to read off the card. The options are:
 ### Card processing \ Check expiry date
 If this box is ticked, the application will check the expiry date of the card 
 against the current date and will either output nothing or "EXPIRED" (if 
-"Describe errors in output" is set) if the card has expired.
+"Describe errors in output" is set) in the event the card has expired.
 
 ### Card processing \ Fallback URL
-You can supply the website address of a web service to be used in the event a 
-particular card field is empty; the Mifare Unique Card ID is appended to the 
-URL before it's submitted to the webservice, eg. 
-http://fallbackurl/retrieveCRSID/0123456789. This is particularly useful when 
-reading CRSIDs as cards are often sent out to users before they've been 
-assigned a CRSID. 
+The website address of a web service to be used in the event a card field is 
+empty; the Mifare Unique Card ID is appended to the URL before it's submitted 
+to the webservice, eg. http://fallbackurl/retrieveCRSID/0123456789. This is 
+useful when reading CRSIDs as cards are often sent out to users before they've 
+been assigned a CRSID. 
 
 ### Output \ Destination
 Specify where output keys should be sent after a card has been successfully 
@@ -107,24 +106,23 @@ eg. "ID0123456789"
 ### Output \ Describe errors in output
 If the card has expired or no card information can be found (assuming "Output 
 ID if empty" is off and the fallback URL returns nothing), then meaningful 
-text will be output rather than nothing at all, eg. "EXPIRED" or "EMPTY".
+text will be output ("EXPIRED" or "EMPTY") rather than nothing at all.
 
 ### Output \ Add delimiter
 A sequence of text delimiters can be inserted after the card data and before 
-any possible carriage return.
+any possible carriage return whenever any text is output.
 
 ### Output \ Add carriage return
 A carriage return can be added after the card data whenever any text is output 
 to the local device / PC.
 
 ### Authentication \ Web service URL
-The URL of the webservice for authenticating the application - the 
-application must be authenticated before it can be used. The central 
+The URL of the authentication webservice for authenticating the application; 
+the application must be authenticated before it can be used. A central 
 authentication server provides a way of distributing encrypted versions of the 
-crucial 'card key' required to read University of Cambridge cards. 
-For specific instructions on authenticating the app, go to: 
+University of Cambridge 'card key' that is required to read University of 
+Cambridge cards. For specific instructions on authenticating the app, go to: 
 http://card.careers.cam.ac.uk/apps
-
 
 Compiling and debugging application
 -----------------------------------

@@ -11,8 +11,8 @@ the application's 'Destination' setting. By creating a card reader 'keyboard
 wedge', it's possible to create card applications quickly and easily without 
 having to worry about card reading specifics. 
 
-Keystrokes are sent to the local device buffer using the Android Input Method. 
-Sending keys to an external PC / tablet is via the InputStick 
+Keystrokes are sent to the local device buffer using the Android Input Method 
+Editor (IME). Sending keys to an external PC / tablet is via the InputStick 
 Bluetooth-to-USB dongle.
  
 - http://developer.android.com/guide/topics/text/creating-input-method.html

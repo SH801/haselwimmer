@@ -157,14 +157,14 @@ messages. Some class files manage background tasks like card scanning while
 others directly handle user interface screens.
 
 ### Authentication.java
-'Authentication' class manages authentication screen for authenticating with 
-central server. The authentication screen works as follows: the user enters 
-their username, password and passphrase and clicks 'Authenticate'. Assuming 
-the username/password are valid, the central server returns the Cambridge 
-University card key encrypted with the supplied passphrase.
+The 'Authentication' class manages the authentication screen for authenticating 
+with the central server. The authentication screen works as follows: the user 
+enters their username, password and passphrase and clicks 'Authenticate'. 
+Assuming the username/password are valid, the central server returns the 
+Cambridge University card key encrypted with the supplied passphrase.
 
 ### AuthenticationService.java
-'AuthenticationService' class accesses the authentication web service to 
+The 'AuthenticationService' class accesses the authentication web service to 
 retrieve an encrypted card key, encrypted with the supplied passphrase. 
 The web service should return the information in JSON format as:
 
@@ -179,15 +179,15 @@ Uses JSON parser (c) Mini Sharma from:
 http://mrbool.com/how-to-use-json-to-parse-data-into-android-application/28944#ixzz33HP5lE46
 
 ### BootCompleted.java
-'BootCompleted' class responds to 'android.intent.action.BOOT\_COMPLETE' intent. 
-We respond to BOOT\_COMPLETE intent in order to start 'Core' service on startup. 
-'Core' handles all global variables and must be loaded first.
+The 'BootCompleted' class responds to 'android.intent.action.BOOT\_COMPLETE' 
+intent. We respond to BOOT\_COMPLETE intent in order to start 'Core' service 
+on startup. 'Core' handles all global variables and must be loaded first.
 
 ### Card.java
-'Card' activity manages Mifare 4K card scanning and processing. A decrypted 
-card key will typically be used to read the sectors off the card. If card 
-information is missing, the class/activity can call a web service to look up 
-card information based on the card's id. 
+The 'Card' activity manages Mifare 4K card scanning and processing. A 
+decrypted card key will typically be used to read the sectors off the card. If 
+card information is missing, the class/activity can call a web service to look 
+up card information based on the card's id. 
 
 The activity is activated after 'android.nfc.action.TECH\_DISCOVERED' intent 
 and typically results in keys being sent to a local or remote device during 
@@ -196,20 +196,21 @@ up, however, 'processCardInfo' may be called on a separate thread after the
 async call has finished.
 
 ### ConnectivityChange.java
-'ConnectivityChange' class responds to 'android.net.conn.CONNECTIVITY\_CHANGE' 
-intents. The appearance of a CONNECTIVITY\_CHANGE intent means the status of 
-the wifi connection has changed, in which case we use the 'Internet' class to 
-test whether the connection's a fully functioning internet connection.
+The 'ConnectivityChange' class responds to 
+'android.net.conn.CONNECTIVITY\_CHANGE' intents. The appearance of a 
+CONNECTIVITY\_CHANGE intent means the status of the wifi connection has 
+changed, in which case we use the 'Internet' class to test whether the 
+connection's a fully functioning internet connection.
 
 ### Conversion.java
-'Conversion' class handles general conversion between base64, hex and byte 
+The 'Conversion' class handles general conversion between base64, hex and byte 
 arrays.
 
 ### Core.java
-'Core' service manages global variables and sets up objects that must persist 
-through the lifetime of the application, eg. InputStick. The 'Core' service is 
-run on startup as a result of the 'BootCompleted' class receiving the 
-'android.intent.action.BOOT\_COMPLETED' intent. 
+The 'Core' service class manages global variables and sets up objects that 
+must persist through the lifetime of the application, eg. InputStick. The 
+'Core' service is run on startup as a result of the 'BootCompleted' class 
+receiving the 'android.intent.action.BOOT\_COMPLETED' intent. 
 
 Global variables that 'Core' manages include 'passphrase', used to decrypt 
 the University of Cambridge's unique card key; the encrypted card key is 
@@ -226,14 +227,14 @@ to connect to the phone via USB debugging. If someone is trying to connect,
 the encrypted card key is deleted for security reasons.
 
 ### Decryption.java
-'Decryption' class handles decryption of the encrypted card key. Based on 
+The 'Decryption' class handles decryption of the encrypted card key. Based on 
 "Interoperable AES encryption with Java and JavaScript" 
 https://github.com/mpetersen/aes-example
 
 ### FallbackService.java
-'FallbackService' class accesses a web service to retrieve a value based on the 
-Mifare ID of the card. The web service should provide the information in JSON 
-format as:
+The 'FallbackService' class accesses a web service to retrieve a value based 
+on the Mifare ID of the card. The web service should provide the information 
+in JSON format as:
 
 ```
 {"status":"XXX","data":"value"}
@@ -246,40 +247,40 @@ Uses JSON parser (c) Mini Sharma from:
 http://mrbool.com/how-to-use-json-to-parse-data-into-android-application/28944#ixzz33HP5lE46
 
 ### InputStick.java
-'InputStick' class manages the connection to the Bluetooth-to-USB InputStick 
-dongle (www.inputstick.com).
+The 'InputStick' class manages the connection to the Bluetooth-to-USB 
+InputStick dongle (www.inputstick.com).
 
 ### Interface.java
-'Interface' activity handles the application's main user interface, providing 
-screen output that shows the current status of card processing. It also 
-provides access to application settings and the authentication screen. 
+The 'Interface' activity handles the application's main user interface, 
+providing screen output that shows the current status of card processing. It 
+also provides access to application settings and the authentication screen. 
 
 ### Internet.java
-'Internet' class tests whether a fully-functioning internet connection is in 
-place. It may be possible for an internet connection to only be 'partly' in 
-place if there is a live connection to a Raven-authenticated access point but 
-the authentication with Raven has not been completed. So we search the page 
-that's retrieved (google.com) and look for relevant keywords to see whether 
-that's the case.
+The 'Internet' class tests whether a fully-functioning internet connection 
+is in place. It may be possible for an internet connection to only be 'partly' 
+in place if there is a live connection to a Raven-authenticated access point 
+but the authentication with Raven has not been completed. So we search the 
+page that's retrieved (google.com) and look for relevant keywords to see 
+whether that's the case.
 
 ### JSONParser.java
-'JSONParser' class makes a JSON request and returns data as JSON object.
+The 'JSONParser' class makes a JSON request and returns data as JSON object.
 
 ### Login.java
-'Login' class manages the login prompt. After entering a passphrase through 
-the login prompt, the system checks it is the correct passphrase for the 
-encrypted card key. If it is, the application sets the global passphrase 
+The 'Login' class manages the login prompt. After entering a passphrase 
+through the login prompt, the system checks it is the correct passphrase for 
+the encrypted card key. If it is, the application sets the global passphrase 
 variable (via 'Core') accordingly. If it not the correct passphrase, the 
 application increments the login counter and prompts the user for the 
 passphrase again.
 
 ### PrefFragment.java
-'PrefFragment' class loads the PreferenceScreen-compliant XML application 
+The 'PrefFragment' class loads the PreferenceScreen-compliant XML application 
 settings.
 
 ### Settings.java
-'Settings' class handles access to application settings. Application settings 
-are automatically synced to the preferences user interface through a 
+The 'Settings' class handles access to application settings. Application 
+settings are automatically synced to the preferences user interface through a 
 PreferenceScreen-compliant XML preferences file. For example a list of 
 choices is defined within 'preferences.xml' as 
 
@@ -300,5 +301,6 @@ pref.getString("setting_card_info", "");
 ```
 
 ### TextOutput.java
-TextOutput class handles simple text output generated by app as it progresses. 
-The text data for TextOutput is stored as a global variable in 'Core'.
+The 'TextOutput' class handles simple text output generated by app as it 
+progresses. The text data for TextOutput is stored as a global variable in 
+'Core'.

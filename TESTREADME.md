@@ -107,15 +107,15 @@ information can be retrieved off the card.
 ### Output \ Describe errors in output
 If the card has expired or no card information can be found (assuming "Output 
 ID if empty" is off and the fallback URL returns nothing), then meaningful 
-text will be output ("EXPIRED" or "EMPTY") rather than doing nothing.
+text will be output ("EXPIRED" or "EMPTY") if this box is ticked.
 
 ### Output \ Add delimiter
-A sequence of text delimiters can be inserted after the card data and before 
-any possible carriage return whenever any text is output.
+If this box is ticked, a sequence of text delimiters will be inserted after 
+the card data and before any possible carriage return whenever text is output.
 
 ### Output \ Add carriage return
-A carriage return can be added after the card data whenever any text is output 
-to the local device / PC.
+If this box is ticked, a carriage return will be added after the card data 
+whenever any text is output to the local device / PC.
 
 ### Authentication \ Web service URL
 For entering the URL of the authentication web service that authenticates the 

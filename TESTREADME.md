@@ -138,15 +138,15 @@ http://developer.android.com/tools/extras/oem-usb.html
 Tap "OK" on any dialogs requesting permission.
 4. Download and install "Android SDK" from: 
 http://developer.android.com/sdk/index.html
-5. Launch "eclipse" from within the "adt-bundle-XXX\eclipse" folder to start 
- "Android Developer Tools".
+5. Launch "eclipse" from within the "adt-bundle-XXX\eclipse" folder. This 
+will launch "Android Developer Tools".
 6. Go to "File -> Import -> General: Existing Projects Into Workspace", 
 navigate to the main "UcamCardreader" folder and click "OK". 
 7. Click on "UcamCardreader" in the "Package Explorer" window and go to 
 "Run -> Debug As -> Android Application". You should see your Android device 
-listed in the top of the dialog box. Click "OK" to install the card reader 
-application on your Android device and start debugging. 
-8. To check the application is working correctly, follow the instructions at:
+listed in the top of the dialog box. Select your device and click "OK" to 
+install / debug the card reader application on your device. 
+8. Check the application is working correctly by following the instructions at:
 http://card.careers.cam.ac.uk/apps
 
 Specifics of the application

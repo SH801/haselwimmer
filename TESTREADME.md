@@ -8,9 +8,9 @@ user-defined field, eg. CRSID, Barcode, USN, from a Cambridge University
 Mifare 4K card. It then sends the retrieved data as a sequence of keystrokes 
 to the local keyboard buffer / external PC / tablet, depending on the 
 application's 'Destination' setting. The application functions as a card 
-reader 'keyboard wedge', so separate card applications can be created quickly 
-and easily without having to worry about card reading specifics. For an 
-example of a separate card application, see 'Card Logger' at:
+reader 'keyboard wedge', allowing separate card applications to be created 
+quickly and easily without having to worry about card reading specifics. For 
+an example of a separate card application, see 'Card Logger' at:
 
 - http://card.careers.cam.ac.uk/apps
 

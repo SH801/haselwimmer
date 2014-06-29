@@ -50,8 +50,8 @@ the InputStick SDK (http://www.inputstick.com/index.php/developers/download)
 'uk.ac.cam.cardreader'). A description of the function of each file is 
 provided below under "Specifics of the application".
 - AndroidManifest.xml: Specifies the services and activities of the 
-application and how different application intents (system messages) should be 
-processed by the application. 
+application and how different application 'intents' (system messages) should 
+be processed by the application. 
 
 Platform requirements
 ---------------------

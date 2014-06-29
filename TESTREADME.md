@@ -143,6 +143,25 @@ University of Cambridge cards.
 - For specific instructions on authenticating the app, go to: 
 http://card.careers.cam.ac.uk/apps
 
+Menu items
+----------
+In addition to the 'Settings' menu option, the following additional menu 
+items are available by tapping on the three dots on the top right of the 
+screen:
+
+### Authenticate
+Brings up the 'Authenticate' screen for authenticating the application.
+
+### Clear screen
+Resets the screen, clearing away any information from the last card that was 
+scanned.
+
+### About
+Shows information about the version of the application. This may be useful 
+when reporting bugs or when testing new versions.
+
+- The text string that defines the version is set in 'res\values\strings.xml'.
+
 Compiling and debugging application
 -----------------------------------
 1. On your Android device, go to "Settings -> Developer options". If you're 

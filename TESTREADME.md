@@ -109,9 +109,9 @@ of the card prefixed with 'ID', eg. "ID0123456789", if no specific card
 information can be retrieved off the card.
 
 ### Output \ Describe errors in output
-If the card has expired or no card information can be found (assuming "Output 
-ID if empty" is off and the fallback URL returns nothing), then meaningful 
-text will be output ("EXPIRED" or "EMPTY") if this box is ticked.
+If this box is ticked, meaningful text will be output ("EXPIRED" or "EMPTY") 
+in the event the card has expired or no card information can be found 
+(assuming "Output ID if empty" is off and the fallback URL returns nothing).
 
 ### Output \ Add delimiter
 If this box is ticked, a sequence of text delimiters will be inserted after 

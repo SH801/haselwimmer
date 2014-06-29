@@ -158,10 +158,12 @@ http://card.careers.cam.ac.uk/apps
 
 Specifics of the application
 ----------------------------
-The 'AndroidManifest.xml' configuration file activates different services / 
-activities (coded as separate .java class files) according to different system 
-messages. Some class files manage background tasks like card scanning while 
-others handle the user interface.
+The 'AndroidManifest.xml' configuration file defines which services / 
+activities (coded as separate .java class files) are activated by specific 
+system messages. Other services / activities are also initiated by the 
+application itself. The application's different class files (below) manage 
+a variety of tasks from background tasks like card scanning and web service 
+calls through to user interface tasks.
 
 ### Authentication.java
 The 'Authentication' class manages the authentication screen for authenticating 

@@ -1,5 +1,5 @@
-University of Cambridge Event Registration 1.0
-==============================================
+University of Cambridge Event Registration App 1.0
+==================================================
 
 Overview
 --------
